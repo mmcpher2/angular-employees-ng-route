@@ -1,0 +1,11 @@
+<section>
+    <a href="#!/employees/list">Back to Employee List</a>
+
+    <h1>{{ employee.firstName }} {{ employee.lastName }}</h1>
+
+    <h3>Started on {{ employee.employmentStart | date:"fullDate" }}</h3>
+
+    <button ng-click="fireEmployee()">Fire Employee</button>
+    <button ng-click="murderEmployee()">Murder Employee</button>
+
+</section>
