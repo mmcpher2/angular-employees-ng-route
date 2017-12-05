@@ -40,6 +40,24 @@ angular
                     }
                 })
             }
+        },
+        "fire": {
+            value: function (employee, key) {
+                employee.employmentEnd = Date.now()
+                return $http({
+                    method: "PUT",
+                    url: `https://employee-management-f9700.firebaseio.com/employees/${key}/.json`,
+                    data: employee
+                })
+            }
+        },
+        "murder": {
+            value: function (key) {
+                return $http({
+                    method: "DELETE",
+                    url: `https://employee-management-f9700.firebaseio.com/employees/${key}/.json`,
+                })
+            }
         }
     })
 })
