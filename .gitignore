@@ -1,5 +1,5 @@
-lib
-node_modules
+lib/node_modules_unused
+lib/node_modules
 bower_components
 __pycache__
 *.pyc
