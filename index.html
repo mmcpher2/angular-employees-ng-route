@@ -4,13 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title>NSS Starter Kit - Angular</title>
+  <link rel="stylesheet" href="./app/styles/main.css">
 </head>
 
-<nav ng-controller="AuthCtrl">
-    <button ng-click="logoutUser()">Logout</button>
-</nav>
-
 <body ng-app="EmployeeApp">
+
+    <nav ng-include="'/app/navigation/partials/navigation.html'"></nav>
 
     <div ng-view></div>
 
@@ -22,6 +21,8 @@
 
     <script src="./app/auth/factories/AuthFactory.js"></script>
     <script src="./app/auth/controllers/AuthCtrl.js"></script>
+
+    <script src="./app/navigation/controllers/NavCtrl.js"></script>
 
     <script src="./app/employees/factories/EmployeeFactory.js"></script>
     <script src="./app/employees/controllers/EmployeeListCtrl.js"></script>

@@ -2,6 +2,18 @@ angular
 .module("EmployeeApp")
 .factory("EmployeeFactory", function ($http) {
     return Object.create(null, {
+        "cache": {
+            value: null,
+            writable: true
+        },
+        "find": {
+            value: function (searchString) {
+                const result = this.cache.find(s => {
+                    return s.firstName.includes(searchString) ||
+                           s.lastName.includes(searchString)
+                })
+                return result}
+        },
         "list": {
             value: function () {
                 return $http({
@@ -10,10 +22,11 @@ angular
                 }).then(response => {
                     const data = response.data
                     // Make an array of objects so we can use filters
-                    return Object.keys(data).map(key => {
+                   this.cache = Object.keys(data).map(key => {
                         data[key].id = key
                         return data[key]
                     })
+                    return this.cache
                 })
             }
         },
